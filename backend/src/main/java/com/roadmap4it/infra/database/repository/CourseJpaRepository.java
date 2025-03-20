@@ -1,9 +1,9 @@
 package com.roadmap4it.infra.database.repository;
 
+import com.roadmap4it.adapters.rest.course.controllers.CourseMapper;
 import com.roadmap4it.domain.entity.Course;
 import com.roadmap4it.domain.repository.CourseRepository;
 import com.roadmap4it.infra.database.model.CourseEntity;
-import com.roadmap4it.interfaces.rest.mappers.CourseMapper;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

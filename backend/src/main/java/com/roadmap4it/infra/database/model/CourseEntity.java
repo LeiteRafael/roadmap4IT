@@ -2,8 +2,10 @@ package com.roadmap4it.infra.database.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 import java.util.List;
@@ -14,6 +16,8 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class CourseEntity {
 

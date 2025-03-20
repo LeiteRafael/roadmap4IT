@@ -1,4 +1,4 @@
-package com.roadmap4it.interfaces.rest.mappers;
+package com.roadmap4it.adapters.rest.course.controllers;
 
 import com.roadmap4it.domain.entity.Course;
 import com.roadmap4it.infra.database.model.CourseEntity;
