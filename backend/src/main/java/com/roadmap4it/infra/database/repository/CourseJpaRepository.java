@@ -26,11 +26,16 @@ public interface CourseJpaRepository extends JpaRepository<CourseEntity, Long>, 
     }
 
     default Course saveCourse(Course course) {
-        CourseEntity entity = CourseMapper.toEntity(course);
-        return CourseMapper.toDomain(save(entity));
+        return CourseMapper.toDomain(save(CourseMapper.toEntity(course)));
     }
 
     default void deleteCourseById(Long id) {
         deleteById(id);
     }
+
+    default boolean existsByUniversityAndName(String university, String name) {
+        return existsByUniversityIgnoreCaseAndNameIgnoreCase(university, name);
+    }
+
+    boolean existsByUniversityIgnoreCaseAndNameIgnoreCase(String university, String name);
 }

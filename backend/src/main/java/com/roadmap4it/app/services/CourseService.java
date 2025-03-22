@@ -1,5 +1,6 @@
 package com.roadmap4it.app.services;
 
+import com.roadmap4it.app.exceptions.BusinessException;
 import com.roadmap4it.domain.entity.Course;
 import com.roadmap4it.domain.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,12 @@ public class CourseService {
     }
 
     public Course createCourse(Course course) {
+        boolean exists = courseRepository.existsByUniversityAndName(course.getUniversity(), course.getName());
+
+        if (exists) {
+            throw new BusinessException("Já existe um curso com o nome '"
+                    + course.getName() + "' na universidade '" + course.getUniversity() + "'.");
+        }
         return courseRepository.saveCourse(course);
     }
 
