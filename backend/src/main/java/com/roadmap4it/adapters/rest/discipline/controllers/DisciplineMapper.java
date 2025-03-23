@@ -13,6 +13,7 @@ public class DisciplineMapper {
                 .semester(discipline.getSemester())
                 .prerequisites(discipline.getPrerequisites())
                 .unlocks(discipline.getUnlocks())
+                .categories(discipline.getCategories())
                 .build();
     }
 
@@ -23,7 +24,8 @@ public class DisciplineMapper {
                 entity.getDescription(),
                 entity.getSemester(),
                 entity.getPrerequisites(),
-                entity.getUnlocks()
+                entity.getUnlocks(),
+                entity.getCategories()
         );
     }
 }

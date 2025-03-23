@@ -18,4 +18,5 @@ public class Discipline {
     private int semester;
     private List<String> prerequisites;
     private List<String> unlocks;
+    private List<String> categories;
 }
