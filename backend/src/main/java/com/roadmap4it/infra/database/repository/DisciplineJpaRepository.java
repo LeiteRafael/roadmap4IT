@@ -53,4 +53,11 @@ public interface DisciplineJpaRepository extends JpaRepository<DisciplineEntity,
     void deleteByCodeIgnoreCase(String code);
     
     boolean existsByCodeIgnoreCase(String code);
+
+    default List<Discipline> findBySemester(int semester) {
+        return findAll().stream()
+                .filter(disciplineEntity -> disciplineEntity.getSemester() == semester)
+                .map(DisciplineMapper::toDomain)
+                .collect(Collectors.toList());
+    }
 }

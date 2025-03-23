@@ -40,4 +40,9 @@ public class DisciplineController {
     public void deleteDiscipline(@PathVariable String code) {
         disciplineService.deleteDiscipline(code);
     }
+
+    @GetMapping("/semester/{semester}")
+    public List<Discipline> getDisciplinesBySemester(@PathVariable int semester) {
+        return disciplineService.getDisciplinesBySemester(semester);
+    }
 }

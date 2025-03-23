@@ -51,4 +51,8 @@ public class DisciplineService {
 
         disciplineRepository.deleteDisciplineByCode(code);
     }
+
+    public List<Discipline> getDisciplinesBySemester(int semester) {
+        return disciplineRepository.findBySemester(semester);
+    }
 }
