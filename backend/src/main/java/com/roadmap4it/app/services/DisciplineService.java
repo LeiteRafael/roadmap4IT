@@ -5,8 +5,10 @@ import com.roadmap4it.domain.entity.Discipline;
 import com.roadmap4it.domain.repository.DisciplineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -18,24 +20,35 @@ public class DisciplineService {
         return disciplineRepository.findAllDisciplines();
     }
 
-    // public Optional<Discipline> getDisciplineById(Long id) {
-    // return disciplineRepository.findById(id);
-    // }
-
     public Discipline createDiscipline(Discipline discipline) {
-        // Verificar se a disciplina já existe (com base no código, por exemplo)
         boolean exists = disciplineRepository.existsByCode(discipline.getCode());
 
         if (exists) {
             throw new BusinessException("Já existe uma disciplina com o código '" + discipline.getCode() + "'.");
         }
-        
-        // Salvar a nova disciplina
+
         return disciplineRepository.saveDiscipline(discipline);
     }
 
-    // Deletar uma disciplina
-    public void deleteDiscipline(Long id) {
-        disciplineRepository.deleteDisciplineById(id);
+    public Discipline updateDiscipline(String code, Discipline updatedDiscipline) {
+        Discipline existingDiscipline = disciplineRepository.findByCode(code)
+                .orElseThrow(() -> new BusinessException("Disciplina com código " + code + " não encontrada."));
+
+        existingDiscipline.setName(updatedDiscipline.getName());
+        existingDiscipline.setPrerequisites(updatedDiscipline.getPrerequisites());
+
+        return disciplineRepository.updateDiscipline(existingDiscipline);
+    }
+
+    public Optional<Discipline> getDisciplineByCode(String code) {
+        return disciplineRepository.findByCode(code);
+    }
+
+    @Transactional
+    public void deleteDiscipline(String code) {
+        disciplineRepository.findByCode(code)
+                .orElseThrow(() -> new BusinessException("Disciplina com código " + code + " não encontrada."));
+
+        disciplineRepository.deleteDisciplineByCode(code);
     }
 }

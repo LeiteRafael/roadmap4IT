@@ -21,23 +21,36 @@ public interface DisciplineJpaRepository extends JpaRepository<DisciplineEntity,
                 .collect(Collectors.toList());
     }
 
-    default Optional<Discipline> findDisciplineById(Long id) {
-        return findById(id).map(DisciplineMapper::toDomain);
+    default Optional<Discipline> findByCode(String code){
+        return findAll().stream()
+                .filter(disciplineEntity -> disciplineEntity.getCode().equalsIgnoreCase(code))
+                .map(DisciplineMapper::toDomain)
+                .findFirst();
     }
-
 
     default Discipline saveDiscipline(Discipline discipline) {
         return DisciplineMapper.toDomain(save(DisciplineMapper.toEntity(discipline)));
     }
 
-    default void deleteDisciplineById(Long id) {
-        deleteById(id);
+    default void deleteDisciplineByCode(String code) {
+        deleteByCodeIgnoreCase(code);
     }
 
     default boolean existsByCode(String code) {
-        System.out.println(code);
         return existsByCodeIgnoreCase(code);
     }
 
+    default Discipline updateDiscipline(Discipline discipline) {
+        DisciplineEntity entity = DisciplineMapper.toEntity(discipline);
+        return DisciplineMapper.toDomain(save(entity));
+    }
+
+    default void delete(Discipline discipline) {
+        DisciplineEntity entity = DisciplineMapper.toEntity(discipline);
+        deleteById(entity.getId());
+    }
+
+    void deleteByCodeIgnoreCase(String code);
+    
     boolean existsByCodeIgnoreCase(String code);
 }

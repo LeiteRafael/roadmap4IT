@@ -6,17 +6,19 @@ import java.util.Optional;
 
 public interface DisciplineRepository {
 
+    List<Discipline> findAllDisciplines();
+
     Optional<Discipline> findByCode(String code);
 
     List<Discipline> findBySemester(int semester);
 
-    List<Discipline> findAllDisciplines();
-
     Discipline saveDiscipline(Discipline discipline);
 
-    // void delete(Discipline discipline);
-
-    void deleteDisciplineById(Long id);
+    void deleteDisciplineByCode(String code);
 
     boolean existsByCode(String code);
+
+    Discipline updateDiscipline(Discipline discipline);
+
+    void delete(Discipline discipline);
 }

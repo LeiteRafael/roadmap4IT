@@ -39,6 +39,11 @@ public class DisciplineEntity {
     @Column(name = "unlock")
     private List<String> unlocks;
 
+    @ElementCollection
+    @CollectionTable(name = "discipline_categories", joinColumns = @JoinColumn(name = "discipline_id"))
+    @Column(name = "category")
+    private List<String> categories;
+
     @ManyToMany
     @JoinTable(
         name = "course_disciplines",

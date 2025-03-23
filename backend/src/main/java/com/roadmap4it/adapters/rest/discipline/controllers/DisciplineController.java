@@ -1,6 +1,5 @@
 package com.roadmap4it.adapters.rest.discipline.controllers;
 
-
 import com.roadmap4it.app.services.DisciplineService;
 import com.roadmap4it.domain.entity.Discipline;
 
@@ -22,18 +21,23 @@ public class DisciplineController {
         return disciplineService.getAllDisciplines();
     }
 
-    // @GetMapping("/{id}")
-    // public Optional<Discipline> getDisciplineById(@PathVariable Long id) {
-    //     return disciplineService.getDisciplineById(id);
-    // }
+    @GetMapping("/{code}")
+    public Optional<Discipline> getDisciplineByCode(@PathVariable String code) {
+        return disciplineService.getDisciplineByCode(code);
+    }
 
     @PostMapping
     public Discipline createDiscipline(@RequestBody Discipline Discipline) {
         return disciplineService.createDiscipline(Discipline);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteDiscipline(@PathVariable Long id) {
-        disciplineService.deleteDiscipline(id);
+    @PutMapping("/{code}")
+    public Discipline updateDiscipline(@PathVariable String code, @RequestBody Discipline discipline) {
+        return disciplineService.updateDiscipline(code, discipline);
+    }
+
+    @DeleteMapping("/{code}")
+    public void deleteDiscipline(@PathVariable String code) {
+        disciplineService.deleteDiscipline(code);
     }
 }
