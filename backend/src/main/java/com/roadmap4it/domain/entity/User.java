@@ -1,21 +1,20 @@
 package com.roadmap4it.domain.entity;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
-public class Course {
-    private int id;
-    private String university;
+public class User {
+    private long id;
     private String name;
-    private int duration;
-    private String area;
-    private List<String> disciplines;
+    private String email;
+    private Long courseId;
+    private List<String> completedDisciplines;
 }

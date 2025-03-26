@@ -12,6 +12,8 @@ public interface DisciplineRepository {
 
     List<Discipline> findBySemester(int semester);
 
+    List<Discipline> findByCategory(String category);
+
     Discipline saveDiscipline(Discipline discipline);
 
     void deleteDisciplineByCode(String code);
@@ -20,5 +22,4 @@ public interface DisciplineRepository {
 
     Discipline updateDiscipline(Discipline discipline);
 
-    void delete(Discipline discipline);
 }

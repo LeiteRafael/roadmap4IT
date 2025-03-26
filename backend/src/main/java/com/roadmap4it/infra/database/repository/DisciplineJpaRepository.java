@@ -21,11 +21,25 @@ public interface DisciplineJpaRepository extends JpaRepository<DisciplineEntity,
                 .collect(Collectors.toList());
     }
 
-    default Optional<Discipline> findByCode(String code){
+    default Optional<Discipline> findByCode(String code) {
         return findAll().stream()
                 .filter(disciplineEntity -> disciplineEntity.getCode().equalsIgnoreCase(code))
                 .map(DisciplineMapper::toDomain)
                 .findFirst();
+    }
+
+    default List<Discipline> findBySemester(int semester) {
+        return findAll().stream()
+                .filter(disciplineEntity -> disciplineEntity.getSemester() == semester)
+                .map(DisciplineMapper::toDomain)
+                .collect(Collectors.toList());
+    }
+
+    default List<Discipline> findByCategory(String category) {
+        return findAll().stream()
+                .filter(disciplineEntity -> disciplineEntity.getCategories().contains(category))
+                .map(DisciplineMapper::toDomain)
+                .collect(Collectors.toList());
     }
 
     default Discipline saveDiscipline(Discipline discipline) {
@@ -45,19 +59,9 @@ public interface DisciplineJpaRepository extends JpaRepository<DisciplineEntity,
         return DisciplineMapper.toDomain(save(entity));
     }
 
-    default void delete(Discipline discipline) {
-        DisciplineEntity entity = DisciplineMapper.toEntity(discipline);
-        deleteById(entity.getId());
-    }
+
 
     void deleteByCodeIgnoreCase(String code);
-    
-    boolean existsByCodeIgnoreCase(String code);
 
-    default List<Discipline> findBySemester(int semester) {
-        return findAll().stream()
-                .filter(disciplineEntity -> disciplineEntity.getSemester() == semester)
-                .map(DisciplineMapper::toDomain)
-                .collect(Collectors.toList());
-    }
+    boolean existsByCodeIgnoreCase(String code);
 }

@@ -1,0 +1,483 @@
+[
+    {
+        "code": "INF01202",
+        "name": "Algoritmos e Programação - CIC",
+        "semester": 1,
+        "prerequisites": [],
+        "unlocks": [
+            "INF01203"
+        ],
+        "categories": [
+            "Algoritmos",
+            "Fundamentos da Programação"
+        ]
+    },
+    {
+        "code": "MAT01353",
+        "name": "Cálculo e Geometria Analítica I - A",
+        "semester": 1,
+        "prerequisites": [],
+        "unlocks": [
+            "MAT01355",
+            "MAT01354"
+        ],
+        "categories": [
+            "Métodos Quantitativos da Computação"
+        ]
+    },
+    {
+        "code": "INF05008",
+        "name": "Fundamentos de Algoritmos",
+        "semester": 1,
+        "prerequisites": [],
+        "unlocks": [
+            "INF01203"
+        ],
+        "categories": [
+            "Algoritmos",
+            "Fundamentos da Programação"
+        ]
+    },
+    {
+        "code": "INF01107",
+        "name": "Introdução à Arquitetura de Computadores",
+        "semester": 1,
+        "prerequisites": [],
+        "unlocks": [
+            "INF01108"
+        ],
+        "categories": [
+            "Arquitetura Avançada de Computadores"
+        ]
+    },
+    {
+        "code": "MAT01375",
+        "name": "Matemática Discreta B",
+        "semester": 1,
+        "prerequisites": [],
+        "unlocks": [
+            "INF05508",
+            "INF05512"
+        ],
+        "categories": [
+            "Matemática Discreta",
+            "Estruturas Algébricas"
+        ]
+    },
+    {
+        "code": "MAT01355",
+        "name": "Álgebra Linear I - A",
+        "semester": 2,
+        "prerequisites": [
+            "MAT01353"
+        ],
+        "unlocks": [
+            "INF01047",
+            "INF05010",
+            "MAT01032"
+        ],
+        "categories": [
+            "Estruturas Algébricas"
+        ]
+    },
+    {
+        "code": "INF01108",
+        "name": "Arquitetura e Organização de Computadores I",
+        "semester": 2,
+        "prerequisites": [
+            "INF01107"
+        ],
+        "unlocks": [
+            "INF01112",
+            "INF01058"
+        ],
+        "categories": [
+            "Arquitetura Avançada de Computadores"
+        ]
+    },
+    {
+        "code": "MAT01354",
+        "name": "Cálculo e Geometria Analítica II - A",
+        "semester": 2,
+        "prerequisites": [
+            "MAT01353"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Métodos Quantitativos da Computação"
+        ]
+    },
+    {
+        "code": "INF01203",
+        "name": "Estruturas de Dados",
+        "semester": 2,
+        "prerequisites": [
+            "INF01202",
+            "INF05008"
+        ],
+        "unlocks": [
+            "INF01124"
+        ],
+        "categories": [
+            "Algoritmos",
+            "Fundamentos da Programação"
+        ]
+    },
+    {
+        "code": "INF05508",
+        "name": "Lógica para Computação",
+        "semester": 2,
+        "prerequisites": [
+            "MAT01375"
+        ],
+        "unlocks": [
+            "INF05005",
+            "INF05501"
+        ],
+        "categories": [
+            "Lógica",
+            "Métodos Formais"
+        ]
+    },
+    {
+        "code": "INF05512",
+        "name": "Teoria dos Grafos e Análise Combinatória",
+        "semester": 2,
+        "prerequisites": [
+            "MAT01375"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Teoria dos Grafos",
+            "Matemática Discreta"
+        ]
+    },
+    {
+        "code": "INF01112",
+        "name": "Arquitetura e Organização de Computadores II",
+        "semester": 3,
+        "prerequisites": [
+            "INF01108"
+        ],
+        "unlocks": [
+            "INF01113"
+        ],
+        "categories": [
+            "Arquitetura Avançada de Computadores"
+        ]
+    },
+    {
+        "code": "INF01058",
+        "name": "Circuitos Digitais",
+        "semester": 3,
+        "prerequisites": [
+            "INF01108",
+            "MAT01375"
+        ],
+        "unlocks": [
+            "INF01113"
+        ],
+        "categories": [
+            "Arquitetura Avançada de Computadores"
+        ]
+    },
+    {
+        "code": "INF01124",
+        "name": "Classificação e Pesquisa de Dados",
+        "semester": 3,
+        "prerequisites": [
+            "INF01203"
+        ],
+        "unlocks": [
+            "INF05515",
+            "INF01145",
+            "INF01120"
+        ],
+        "categories": [
+            "Algoritmos",
+            "Métodos Quantitativos da Computação"
+        ]
+    },
+    {
+        "code": "INF05005",
+        "name": "Linguagens Formais e Autômatos",
+        "semester": 3,
+        "prerequisites": [
+            "INF05508"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Linguagens Formais e Autômatos",
+            "Teoria de Compilação"
+        ]
+    },
+    {
+        "code": "MAT02219",
+        "name": "Probabilidade e Estatística",
+        "semester": 3,
+        "prerequisites": [
+            "MAT01353"
+        ],
+        "unlocks": [
+            "INF01046"
+        ],
+        "categories": [
+            "Modelos Estatísticos e Probabilísticos"
+        ]
+    },
+    {
+        "code": "INF05501",
+        "name": "Teoria da Computação",
+        "semester": 3,
+        "prerequisites": [
+            "INF05508"
+        ],
+        "unlocks": [
+            "INF05515"
+        ],
+        "categories": [
+            "Teoria de Computação",
+            "Métodos Formais"
+        ]
+    },
+    {
+        "code": "MAT01032",
+        "name": "Cálculo Numérico A",
+        "semester": 4,
+        "prerequisites": [
+            "INF01202",
+            "MAT01355"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Métodos Quantitativos da Computação"
+        ]
+    },
+    {
+        "code": "INF05515",
+        "name": "Complexidade de Algoritmos - B",
+        "semester": 4,
+        "prerequisites": [
+            "INF01124",
+            "INF05501",
+            "INF05512"
+        ],
+        "unlocks": [
+            "INF05010"
+        ],
+        "categories": [
+            "Algoritmos",
+            "Complexidade"
+        ]
+    },
+    {
+        "code": "INF01145",
+        "name": "Fundamentos de Banco de Dados",
+        "semester": 4,
+        "prerequisites": [
+            "INF01124"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Teoria de Tipos de Dados Abstratos"
+        ]
+    },
+    {
+        "code": "INF01046",
+        "name": "Fundamentos de Processamento de Imagens",
+        "semester": 4,
+        "prerequisites": [
+            "MAT01354",
+            "MAT02219"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Modelos Estatísticos e Probabilísticos"
+        ]
+    },
+    {
+        "code": "INF01113",
+        "name": "Organização de Computadores B",
+        "semester": 4,
+        "prerequisites": [
+            "INF01058",
+            "INF01112"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Arquitetura Avançada de Computadores"
+        ]
+    },
+    {
+        "code": "INF01120",
+        "name": "Técnicas de Construção de Programas",
+        "semester": 4,
+        "prerequisites": [
+            "INF01124"
+        ],
+        "unlocks": [
+            "INF01127",
+            "INF01048"
+        ],
+        "categories": [
+            "Fundamentos da Programação"
+        ]
+    },
+    {
+        "code": "INF01127",
+        "name": "Engenharia de Software N",
+        "semester": 5,
+        "prerequisites": [
+            "INF01120"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Metodologias Ágeis",
+            "Desenvolvimento de Software"
+        ]
+    },
+    {
+        "code": "INF01047",
+        "name": "Fundamentos de Computação Gráfica",
+        "semester": 5,
+        "prerequisites": [
+            "MAT01354",
+            "MAT01355"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Computação Gráfica"
+        ]
+    },
+    {
+        "code": "INF01048",
+        "name": "Inteligência Artificial",
+        "semester": 5,
+        "prerequisites": [
+            "INF01120",
+            "INF05508"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Inteligência Artificial"
+        ]
+    },
+    {
+        "code": "INF05010",
+        "name": "Otimização Combinatória",
+        "semester": 5,
+        "prerequisites": [
+            "INF05515",
+            "MAT01355"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Algoritmos"
+        ]
+    },
+    {
+        "code": "INF05516",
+        "name": "Semântica Formal N",
+        "semester": 5,
+        "prerequisites": [
+            "INF05005"
+        ],
+        "unlocks": [
+            "INF01147"
+        ],
+        "categories": [
+            "Métodos Formais"
+        ]
+    },
+    {
+        "code": "INF01142",
+        "name": "Sistemas Operacionais I N",
+        "semester": 5,
+        "prerequisites": [
+            "INF01112",
+            "INF01203"
+        ],
+        "unlocks": [
+            "INF01209",
+            "INF01151",
+            "INF01154"
+        ],
+        "categories": [
+            "Sistemas Operacionais"
+        ]
+    },
+    {
+        "code": "INF01147",
+        "name": "Compiladores",
+        "semester": 6,
+        "prerequisites": [
+            "INF05516"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Teoria de Compilação"
+        ]
+    },
+    {
+        "code": "INF01209",
+        "name": "Fundamentos de Tolerância a Falhas",
+        "semester": 6,
+        "prerequisites": [
+            "INF01142"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Arquitetura de Computadores"
+        ]
+    },
+    {
+        "code": "INF01043",
+        "name": "Interação Homem-Computador",
+        "semester": 6,
+        "prerequisites": [
+            "INF01120"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Interação Humano-Computador"
+        ]
+    },
+    {
+        "code": "INF01121",
+        "name": "Modelos de Linguagem de Programação",
+        "semester": 6,
+        "prerequisites": [
+            "INF01120"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Linguagens de Programação"
+        ]
+    },
+    {
+        "code": "INF01154",
+        "name": "Redes de Computadores N",
+        "semester": 6,
+        "prerequisites": [
+            "INF01058",
+            "INF01142",
+            "MAT02219"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Redes de Computadores"
+        ]
+    },
+    {
+        "code": "INF01151",
+        "name": "Sistemas Operacionais II N",
+        "semester": 6,
+        "prerequisites": [
+            "INF01142"
+        ],
+        "unlocks": [],
+        "categories": [
+            "Sistemas Operacionais"
+        ]
+    }
+]

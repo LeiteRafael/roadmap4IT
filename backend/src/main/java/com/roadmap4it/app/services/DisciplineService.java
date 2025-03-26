@@ -7,8 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +20,18 @@ public class DisciplineService {
 
     public List<Discipline> getAllDisciplines() {
         return disciplineRepository.findAllDisciplines();
+    }
+
+    public Optional<Discipline> getDisciplineByCode(String code) {
+        return disciplineRepository.findByCode(code);
+    }
+
+    public List<Discipline> getDisciplinesBySemester(int semester) {
+        return disciplineRepository.findBySemester(semester);
+    }
+
+    public List<Discipline> getDisciplinesByCategory(String category) {
+        return disciplineRepository.findByCategory(category);
     }
 
     public Discipline createDiscipline(Discipline discipline) {
@@ -36,23 +50,18 @@ public class DisciplineService {
 
         existingDiscipline.setName(updatedDiscipline.getName());
         existingDiscipline.setPrerequisites(updatedDiscipline.getPrerequisites());
+        existingDiscipline.setSemester(updatedDiscipline.getSemester());
+        existingDiscipline.setCategories(new ArrayList<>(updatedDiscipline.getCategories()));
+        existingDiscipline.setUnlocks(new ArrayList<>(updatedDiscipline.getUnlocks())); 
 
         return disciplineRepository.updateDiscipline(existingDiscipline);
     }
 
-    public Optional<Discipline> getDisciplineByCode(String code) {
-        return disciplineRepository.findByCode(code);
-    }
-
     @Transactional
-    public void deleteDiscipline(String code) {
+    public void deleteDisciplineByCode(String code) {
         disciplineRepository.findByCode(code)
                 .orElseThrow(() -> new BusinessException("Disciplina com código " + code + " não encontrada."));
 
         disciplineRepository.deleteDisciplineByCode(code);
-    }
-
-    public List<Discipline> getDisciplinesBySemester(int semester) {
-        return disciplineRepository.findBySemester(semester);
     }
 }

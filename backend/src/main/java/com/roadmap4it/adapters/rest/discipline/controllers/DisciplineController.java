@@ -26,6 +26,16 @@ public class DisciplineController {
         return disciplineService.getDisciplineByCode(code);
     }
 
+    @GetMapping("/semester/{semester}")
+    public List<Discipline> getDisciplinesBySemester(@PathVariable int semester) {
+        return disciplineService.getDisciplinesBySemester(semester);
+    }
+
+    @GetMapping("/category/{category}")
+    public List<Discipline> getDisciplinesByCategory(@PathVariable String category) {
+        return disciplineService.getDisciplinesByCategory(category);
+    }
+
     @PostMapping
     public Discipline createDiscipline(@RequestBody Discipline Discipline) {
         return disciplineService.createDiscipline(Discipline);
@@ -37,12 +47,7 @@ public class DisciplineController {
     }
 
     @DeleteMapping("/{code}")
-    public void deleteDiscipline(@PathVariable String code) {
-        disciplineService.deleteDiscipline(code);
-    }
-
-    @GetMapping("/semester/{semester}")
-    public List<Discipline> getDisciplinesBySemester(@PathVariable int semester) {
-        return disciplineService.getDisciplinesBySemester(semester);
+    public void deleteDisciplineByCode(@PathVariable String code) {
+        disciplineService.deleteDisciplineByCode(code);
     }
 }
