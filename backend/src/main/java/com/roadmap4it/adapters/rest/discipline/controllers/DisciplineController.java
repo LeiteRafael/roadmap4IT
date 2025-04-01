@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/disciplines")
@@ -17,23 +16,13 @@ public class DisciplineController {
     private final DisciplineService disciplineService;
 
     @GetMapping
-    public List<Discipline> getAllDisciplines() {
-        return disciplineService.getAllDisciplines();
-    }
-
-    @GetMapping("/{code}")
-    public Optional<Discipline> getDisciplineByCode(@PathVariable String code) {
-        return disciplineService.getDisciplineByCode(code);
-    }
-
-    @GetMapping("/semester/{semester}")
-    public List<Discipline> getDisciplinesBySemester(@PathVariable int semester) {
-        return disciplineService.getDisciplinesBySemester(semester);
-    }
-
-    @GetMapping("/category/{category}")
-    public List<Discipline> getDisciplinesByCategory(@PathVariable String category) {
-        return disciplineService.getDisciplinesByCategory(category);
+    public List<Discipline> listDisciplines(
+            @RequestParam(required = false) String code,
+            @RequestParam(required = false) Integer semester,
+            @RequestParam(required = false) String categories,
+            @RequestParam(required = false) String prerequisites,
+            @RequestParam(required = false) String unlocks) {
+        return disciplineService.listDisciplines(code, semester, categories, prerequisites, unlocks);
     }
 
     @PostMapping

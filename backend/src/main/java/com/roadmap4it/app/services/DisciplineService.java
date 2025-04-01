@@ -9,8 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -18,20 +16,28 @@ public class DisciplineService {
 
     private final DisciplineRepository disciplineRepository;
 
-    public List<Discipline> getAllDisciplines() {
+    public List<Discipline> listDisciplines( // TODO: 
+            String code,
+            Integer semester,
+            String categories,
+            String prerequisites,
+            String unlocks) {
+
+        if (code != null) {
+            return disciplineRepository.findByCode(code)
+                    .map(List::of)
+                    .orElseGet(List::of);
+        }
+
+        if (semester != null) {
+            return disciplineRepository.findBySemester(semester);
+        }
+
+        if (categories != null) {
+            return disciplineRepository.findByCategory(categories);
+        }
+
         return disciplineRepository.findAllDisciplines();
-    }
-
-    public Optional<Discipline> getDisciplineByCode(String code) {
-        return disciplineRepository.findByCode(code);
-    }
-
-    public List<Discipline> getDisciplinesBySemester(int semester) {
-        return disciplineRepository.findBySemester(semester);
-    }
-
-    public List<Discipline> getDisciplinesByCategory(String category) {
-        return disciplineRepository.findByCategory(category);
     }
 
     public Discipline createDiscipline(Discipline discipline) {
@@ -50,9 +56,10 @@ public class DisciplineService {
 
         existingDiscipline.setName(updatedDiscipline.getName());
         existingDiscipline.setPrerequisites(updatedDiscipline.getPrerequisites());
+        existingDiscipline.setDescription(updatedDiscipline.getDescription());
         existingDiscipline.setSemester(updatedDiscipline.getSemester());
         existingDiscipline.setCategories(new ArrayList<>(updatedDiscipline.getCategories()));
-        existingDiscipline.setUnlocks(new ArrayList<>(updatedDiscipline.getUnlocks())); 
+        existingDiscipline.setUnlocks(new ArrayList<>(updatedDiscipline.getUnlocks()));
 
         return disciplineRepository.updateDiscipline(existingDiscipline);
     }
