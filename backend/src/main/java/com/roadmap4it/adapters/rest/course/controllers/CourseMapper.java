@@ -17,6 +17,7 @@ public class CourseMapper {
 
     public static Course toDomain(CourseEntity entity) {
         return new Course(
+                entity.getId().intValue(),
                 entity.getUniversity(),
                 entity.getName(),
                 entity.getDuration(),
